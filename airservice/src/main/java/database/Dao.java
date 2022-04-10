@@ -100,34 +100,34 @@ public class Dao {
 		}
 	}
 	
+//	public ArrayList<Obj> searchFlight(String source,String destination,String date) throws SQLException{
+//		ArrayList<Obj> a=new ArrayList<Obj>();
+//		String Sql="SELECT * FROM SERVICE WHERE BOARDING=? AND DESTINATION=?";
+//		PreparedStatement pt=con.prepareStatement(Sql);
+//		pt.setString(1,	source);
+//		pt.setString(2, destination);
+////		pt.setString(3, date);
+//		ResultSet rs=pt.executeQuery();
+//		while(rs.next()) {
+//			Obj n=new Obj();
+//			n.setId(rs.getString("AIR_ID"));
+//			n.setSource(rs.getString("BOARDING"));
+//			n.setDestination(rs.getString("DESTINATION"));
+//			n.setFare(rs.getString("FARE"));
+//			n.setStops("1");
+//			n.setTime_arrival(rs.getString("ARRIVAL"));
+//			n.setTime_deperature(rs.getString("DEPARTURE"));
+//			a.add(n);
+//		}
+//		return a;
+//	}
 	public ArrayList<Obj> searchFlight(String source,String destination,String date) throws SQLException{
-		ArrayList<Obj> a=new ArrayList<Obj>();
-		String Sql="SELECT * FROM SERVICE WHERE BOARDING=? AND DESTINATION=?";
-		PreparedStatement pt=con.prepareStatement(Sql);
-		pt.setString(1,	source);
-		pt.setString(2, destination);
-//		pt.setString(3, date);
-		ResultSet rs=pt.executeQuery();
-		while(rs.next()) {
-			Obj n=new Obj();
-			n.setId(rs.getString("AIR_ID"));
-			n.setSource(rs.getString("BOARDING"));
-			n.setDestination(rs.getString("DESTINATION"));
-			n.setFare(rs.getString("FARE"));
-			n.setStops("1");
-			n.setTime_arrival(rs.getString("ARRIVAL"));
-			n.setTime_deperature(rs.getString("DEPARTURE"));
-			a.add(n);
-		}
-		return a;
-	}
-	public ArrayList<Obj> searchFlightMod(String source,String destination,String date) throws SQLException{
 		ArrayList<Obj> a=new ArrayList<Obj>();
 		Queue<Obj> q=new LinkedList<Obj>();
 		String Sql="SELECT * FROM SERVICE WHERE BOARDING=?";
 		PreparedStatement pt=con.prepareStatement(Sql);
 		pt.setString(1,	source);
-		pt.setString(2, destination);
+//		pt.setString(2, destination);
 //		pt.setString(3, date);
 		ResultSet rs=pt.executeQuery();
 		while(rs.next()) {
@@ -147,6 +147,7 @@ public class Dao {
 			}
 		}
 		while(!q.isEmpty()) {
+			System.out.println("level1");
 			Obj temp=q.poll();
 			String id=temp.getId();
 			String source1=temp.getSource();
@@ -162,13 +163,15 @@ public class Dao {
 			pt1.setString(3,arrival);
 			ResultSet rs1=pt1.executeQuery();
 			while(rs1.next()) {
+				System.out.println("level2");
 				Obj n=new Obj();
 				n.setId(id);
 				n.setSource(source1);
 				n.setDestination(rs1.getString("DESTINATION"));
-				n.setFare(Integer.toString(Integer.parseInt(rs1.getString("FARE")))+fare);
-				n.setStops(stops.concat(source1).concat("\n"));
-				n.setTime_arrival(rs.getString("ARRIVAL"));
+				int fare1=Integer.parseInt(rs1.getString("FARE"))+fare;
+				n.setFare(Integer.toString(fare1));
+				n.setStops(stops.concat(destination1).concat("\n"));
+				n.setTime_arrival(rs1.getString("ARRIVAL"));
 				n.setTime_deperature(dep);
 				if(n.getDestination().equals(destination)) {
 					a.add(n);

@@ -42,6 +42,7 @@ public class UserSearch extends HttpServlet {
 		Dao k=new Dao(con);
 		try {
 			ArrayList<Obj> o=k.searchFlight(s, d, date);
+			System.out.println("hello");
 			ArrayList<Obj> a=k.specialDeal();
 			request.setAttribute("flight",a);
 			request.setAttribute("flight_user",o);
