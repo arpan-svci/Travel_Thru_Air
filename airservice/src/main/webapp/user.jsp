@@ -121,20 +121,15 @@
                     <div class="relative z-20">
                         <!-- Heading -->
                         <h1 class="text-cyan-400 border-b-4 border-cyan-400 text-xl text-center py-4 ">
-                            Enter Special Deal
+                           	Special Deal
                         </h1>
 
 
                         <div class="p-20 text-cyan-400 text-lg">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. At aut corporis illo reprehenderit
-                            tempora distinctio dolorem ducimus ut est consectetur, reiciendis veniam alias fugit minus!
-                            Itaque architecto, molestiae, dolore quas esse dolorem animi autem in neque consectetur
-                            atque magni, cupiditate veritatis repudiandae pariatur quis dicta at. Repudiandae,
-                            asperiores quia sunt maiores excepturi quas id impedit aut rerum. Excepturi cupiditate
-                            corrupti quos enim unde suscipit vitae soluta voluptates velit. Quo architecto esse unde
-                            natus. Eius labore saepe minus corporis maiores non exercitationem rem natus repellendus ut?
-                            Eum asperiores perspiciatis officia ab. Dolores blanditiis laborum corrupti porro vel
-                            reprehenderit, provident debitis vitae.
+                            a product or service that is sold at a lower than usual price in order encourage people to buy or use it, or the act of offering goods and services in this way:
+He was good at finding bargains, reporting back to her about the special offers, the cheaper lines.
+From time to time there are special offers on couches.
+I took a trip around the supermarket to see what was on special offer.
                         </div>
 
                     </div>

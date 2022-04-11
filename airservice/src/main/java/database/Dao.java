@@ -170,14 +170,14 @@ public class Dao {
 				n.setDestination(rs1.getString("DESTINATION"));
 				int fare1=Integer.parseInt(rs1.getString("FARE"))+fare;
 				n.setFare(Integer.toString(fare1));
-				n.setStops(stops.concat(destination1).concat("\n"));
+				n.setStops(stops.concat(destination1).concat(" , "));
 				n.setTime_arrival(rs1.getString("ARRIVAL"));
 				n.setTime_deperature(dep);
 				if(n.getDestination().equals(destination)) {
 					a.add(n);
 				}
 				else {
-					q.add(temp);
+					q.add(n);
 				}
 			}
 		}
@@ -227,7 +227,7 @@ public class Dao {
 			double discount=(double)rs.getInt("DISCOUNT");
 			fare=fare*(100-discount)/100;
 			n.setFare(Double.toString(fare));
-			n.setStops("1");
+			n.setStops("");
 			n.setTime_arrival(rs.getString("ARRIVAL"));
 			n.setTime_deperature(rs.getString("DEPARTURE"));
 			a.add(n);
